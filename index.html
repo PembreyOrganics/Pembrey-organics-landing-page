@@ -83,9 +83,12 @@
     .section { margin: 3rem 0; text-align: center; }
     .grid { display: grid; gap: 1.5rem; }
 
-    /* Promise Card */
+    /* Promise Card with background image */
     .promise-card {
-      background: white;
+      background-image: url('https://i.ibb.co/GfhJzPmh/Family-field.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
       padding: 2.5rem 2rem;
       border-radius: 28px;
       box-shadow: var(--shadow);
@@ -93,10 +96,23 @@
       margin: 3rem auto;
       max-width: 700px;
       text-align: center;
+      color: white;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .promise-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      border-radius: 28px;
+      z-index: 1;
     }
     .promise-card p {
+      position: relative;
+      z-index: 2;
       font-size: 1.15rem;
-      color: var(--text);
+      color: white;
       line-height: 1.7;
       font-weight: 500;
       margin-bottom: 0.75rem;
@@ -233,7 +249,7 @@
     </div>
   </div>
 
-  <!-- Promise Card -->
+  <!-- Promise Card with your family‑field image -->
   <div class="promise-card">
     <p>Every product we source has to pass one test: it must be something we'd serve to our own family. That means uncompromising quality, real environmental care, and a taste you'll remember. Ones you'll love, that love the planet back. We're working hard behind the scenes and can't wait to deliver them to your door soon.</p>
   </div>
