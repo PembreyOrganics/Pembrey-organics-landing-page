@@ -24,6 +24,8 @@
       --text-soft: #555;
       --honey: #e8a830;
       --shadow: 0 8px 20px rgba(0,0,0,0.05);
+      --sandy-light: #f3ece0;   /* light hessian base */
+      --sandy-dark: #e8dcc8;    /* slightly deeper hessian */
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -55,7 +57,7 @@
     .hero {
       text-align: center;
       padding: 4rem 2rem;
-      margin-bottom: 2.5rem; /* space below hero */
+      margin-bottom: 2.5rem;
       border-radius: 30px;
       background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.35)), url('https://images.pexels.com/photos/952353/pexels-photo-952353.jpeg');
       background-size: cover;
@@ -78,22 +80,22 @@
       transition: all 0.2s ease;
     }
     .cta:hover { transform: translateY(3px); box-shadow: 0 3px 0 #1e4a12; }
-    .small { font-size: 0.9rem; color: var(--text-soft); }
+    .small { font-size: 0.9rem; }
     .section { margin: 3rem 0; text-align: center; }
     .grid { display: grid; gap: 1.5rem; }
     .features { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
 
-    /* Updated feature cards with coloured background */
+    /* FEATURE CARDS — sandy hessian colour */
     .card {
-      background: linear-gradient(135deg, var(--green-soft) 0%, #d4e8cc 100%);
+      background: linear-gradient(135deg, var(--sandy-light) 0%, var(--sandy-dark) 100%);
       padding: 1.8rem 1.5rem;
       border-radius: 20px;
-      border: 1px solid var(--green-soft);
+      border: 1px solid #d6cbb8;
       transition: all 0.2s;
       text-align: center;
     }
     .card:hover {
-      background: linear-gradient(135deg, #d4e8cc 0%, var(--honey) 100%);
+      background: linear-gradient(135deg, #f8f2e8 0%, var(--honey) 100%);
       border-color: var(--honey);
       box-shadow: 0 8px 18px rgba(0,0,0,0.08);
       transform: translateY(-2px);
@@ -102,10 +104,10 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
       font-size: 1.3rem;
-      color: var(--green);
+      color: #4a3f2e;  /* deep brown for contrast */
     }
     .card .small {
-      color: #3a5a3a; /* darker green for better contrast */
+      color: #5e5344;  /* softer brown for body text */
     }
 
     .mission-full {
@@ -153,8 +155,8 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      width: calc(25% - 1.5rem);   /* 4 per row on desktop */
-      min-width: 160px;            /* prevents too‑narrow cards */
+      width: calc(25% - 1.5rem);
+      min-width: 160px;
     }
     .product div { padding: 1rem; flex: 1; }
     .product:hover { transform: translateY(-6px); border-color: var(--honey); }
@@ -186,7 +188,7 @@
 
     /* Responsive adjustments */
     @media (max-width: 900px) {
-      .product { width: calc(33.333% - 1.5rem); }  /* 3 per row */
+      .product { width: calc(33.333% - 1.5rem); }
     }
     @media (max-width: 640px) {
       .container { padding: 1rem; }
@@ -200,7 +202,7 @@
       .mission-text { max-width: 100%; padding: 1.5rem; }
       .mission-text p { font-size: 0.95rem; }
       .email-box { padding: 1.5rem; }
-      .product { width: 100%; }  /* stack on small screens */
+      .product { width: 100%; }
     }
   </style>
 </head>
@@ -241,7 +243,7 @@
     </div>
   </div>
 
-  <!-- FEATURE CARDS WITH COLOURED BACKGROUND -->
+  <!-- FEATURE CARDS WITH SANDY HESSIAN COLOUR -->
   <section class="section grid features">
     <div class="card">
       <h3>Truly Organic</h3>
