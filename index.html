@@ -108,6 +108,26 @@
       color: #5e5344;
     }
 
+    /* New Promise Card */
+    .promise-card {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 2px solid var(--wheat);
+      margin: 3rem auto;
+      max-width: 700px;
+      text-align: center;
+    }
+    .promise-card p {
+      font-size: 1.15rem;
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .promise-card p:last-child { margin-bottom: 0; }
+
     .mission-full {
       margin: 3rem 0;
       width: 100%;
@@ -197,6 +217,8 @@
       .mission-text-overlay { position: static; background: var(--green); }
       .mission-text { max-width: 100%; padding: 1.5rem; }
       .mission-text p { font-size: 0.95rem; }
+      .promise-card { padding: 2rem 1.5rem; }
+      .promise-card p { font-size: 1rem; }
       .email-box { padding: 1.5rem; }
       .product { width: 100%; }
     }
@@ -252,7 +274,12 @@
     </div>
   </section>
 
-  <!-- MISSION STATEMENT (without "seasonal") -->
+  <!-- NEW PROMISE SECTION -->
+  <div class="promise-card">
+    <p>Every product we source has to pass one test: it must be something we'd serve to our own family. That means uncompromising quality, real environmental care, and a taste you'll remember. Ones you'll love, that love the planet back. We're working hard behind the scenes and can't wait to deliver them to your door soon.</p>
+  </div>
+
+  <!-- MISSION STATEMENT -->
   <div class="mission-full">
     <img class="mission-image" src="https://i.postimg.cc/5tyDnDBS/1.jpg" alt="Rich dark soil held in hands">
     <div class="mission-text-overlay"><div class="mission-text">
