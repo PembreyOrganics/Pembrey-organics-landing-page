@@ -24,8 +24,8 @@
       --text-soft: #555;
       --honey: #e8a830;
       --shadow: 0 8px 20px rgba(0,0,0,0.05);
-      --sandy-light: #f3ece0;   /* light hessian base */
-      --sandy-dark: #e8dcc8;    /* slightly deeper hessian */
+      --sandy-light: #f3ece0;
+      --sandy-dark: #e8dcc8;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -40,7 +40,6 @@
     .nav { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
     .logo-img { height: clamp(260px, 35vw, 420px); width: auto; }
 
-    /* Coming Soon badge */
     .coming-soon-badge {
       display: inline-block;
       margin-top: 0.8rem;
@@ -85,7 +84,6 @@
     .grid { display: grid; gap: 1.5rem; }
     .features { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
 
-    /* FEATURE CARDS — sandy hessian colour */
     .card {
       background: linear-gradient(135deg, var(--sandy-light) 0%, var(--sandy-dark) 100%);
       padding: 1.8rem 1.5rem;
@@ -104,10 +102,10 @@
       margin-bottom: 0.5rem;
       font-weight: 600;
       font-size: 1.3rem;
-      color: #4a3f2e;  /* deep brown for contrast */
+      color: #4a3f2e;
     }
     .card .small {
-      color: #5e5344;  /* softer brown for body text */
+      color: #5e5344;
     }
 
     .mission-full {
@@ -138,7 +136,6 @@
     .mission-text p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
     .mission-text p:last-child { margin-bottom: 0; }
 
-    /* PRODUCTS – Flex container for 4‑top, 3‑bottom centered layout */
     .products {
       display: flex;
       flex-wrap: wrap;
@@ -186,7 +183,6 @@
     .social-link span { color: var(--text-soft); vertical-align: middle; }
     .social-link:hover span { color: var(--green); }
 
-    /* Responsive adjustments */
     @media (max-width: 900px) {
       .product { width: calc(33.333% - 1.5rem); }
     }
@@ -218,14 +214,12 @@
     <a href="#signup" class="cta">Request early access to our first release</a>
   </section>
 
-  <!-- PRODUCTS (flex layout: 4 top, 3 bottom centered) -->
   <div class="products">
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/32515181/pexels-photo-32515181.jpeg" alt="Organic fruits"><div><strong>Fruits</strong><div class="small">Grown for flavour, harvested in season</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/533360/pexels-photo-533360.jpeg" alt="Organic vegetables"><div><strong>Vegetables</strong><div class="small">Fresh from fertile soil, selected at their best</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg" alt="Freshly milled bread"><div><strong>Bread</strong><div class="small">Made using freshly milled flour</div></div></div>
     <div class="product"><img loading="lazy" src="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464_1280.jpg" alt="Raw honey"><div><strong>Honey</strong><div class="small">Raw, unprocessed, naturally rich</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/29251935/pexels-photo-29251935.jpeg" alt="Pasture raised eggs"><div><strong>Eggs</strong><div class="small">From hens raised on pasture</div></div></div>
-    <!-- Kitchen Staples -->
     <div class="product">
       <img loading="lazy" src="https://images.pexels.com/photos/3737648/pexels-photo-3737648.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Glass jars with organic food storage">
       <div>
@@ -233,9 +227,9 @@
         <div class="small">Rice, pasta, grains and cupboard essentials</div>
       </div>
     </div>
-    <!-- Alcoholic Beverages -->
+    <!-- Alcoholic Beverages with new image -->
     <div class="product">
-      <img loading="lazy" src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Selection of alcoholic beverages">
+      <img loading="lazy" src="https://images.pexels.com/photos/12412212/pexels-photo-12412212.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Women enjoying cocktails at a table">
       <div>
         <strong>Alcoholic Beverages</strong>
         <div class="small">Wines, Prosecco, Lager, Ales and Spirits</div>
@@ -243,7 +237,6 @@
     </div>
   </div>
 
-  <!-- FEATURE CARDS WITH SANDY HESSIAN COLOUR -->
   <section class="section grid features">
     <div class="card">
       <h3>Truly Organic</h3>
