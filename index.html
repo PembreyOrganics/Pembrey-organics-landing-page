@@ -101,6 +101,8 @@
     .mission-text { color: white; max-width: 80%; padding: 1.5rem; }
     .mission-text p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
     .mission-text p:last-child { margin-bottom: 0; }
+
+    /* PRODUCTS */
     .products { grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); }
     .product {
       background: white;
@@ -110,10 +112,26 @@
       border: 2px solid var(--wheat);
       transition: transform 0.2s, border-color 0.2s;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
-    .product div { padding: 1rem; }
+    .product div { padding: 1rem; flex: 1; }
     .product:hover { transform: translateY(-6px); border-color: var(--honey); }
     .product img { width: 100%; height: 160px; object-fit: cover; border-bottom: 4px solid var(--green); }
+
+    .coming-soon-tag {
+      display: inline-block;
+      background: var(--honey);
+      color: var(--text);
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 0.5rem;
+    }
+
     .email-box {
       background: white;
       padding: 2rem 2rem;
@@ -167,13 +185,25 @@
     <div class="card"><h3>🐓 Raised on Pasture</h3><p class="small">Animals reared and nurtured in outdoor spaces</p></div>
     <div class="card"><h3>🤝 Carefully Sourced</h3><p class="small">We partner with farms sharing our welfare standards</p></div>
   </section>
+
+  <!-- PRODUCTS (six cards now) -->
   <div class="grid products">
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/32515181/pexels-photo-32515181.jpeg" alt="Organic fruits"><div><strong>Fruits</strong><div class="small">Grown for flavour, harvested in season</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/533360/pexels-photo-533360.jpeg" alt="Organic vegetables"><div><strong>Vegetables</strong><div class="small">Fresh from fertile soil, selected at their best</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg" alt="Freshly milled bread"><div><strong>Bread</strong><div class="small">Made using freshly milled flour</div></div></div>
     <div class="product"><img loading="lazy" src="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464_1280.jpg" alt="Raw honey"><div><strong>Honey</strong><div class="small">Raw, unprocessed, naturally rich</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/29251935/pexels-photo-29251935.jpeg" alt="Pasture raised eggs"><div><strong>Eggs</strong><div class="small">From hens raised on pasture</div></div></div>
+    <!-- NEW: Alcoholic Beverages card -->
+    <div class="product">
+      <img loading="lazy" src="https://images.pexels.com/photos/5947103/pexels-photo-5947103.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Organic alcoholic beverages">
+      <div>
+        <strong>Alcoholic Beverages</strong>
+        <div class="small">Organic drinks crafted with care</div>
+        <span class="coming-soon-tag">Coming Soon</span>
+      </div>
+    </div>
   </div>
+
   <div class="mission-full">
     <img class="mission-image" src="https://i.postimg.cc/5tyDnDBS/1.jpg" alt="Rich dark soil held in hands">
     <div class="mission-text-overlay"><div class="mission-text">
