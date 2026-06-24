@@ -88,6 +88,42 @@
     .section { margin: 3rem 0; text-align: center; }
     .grid { display: grid; gap: 1.5rem; }
 
+    /* WHY ORGANIC SECTION */
+    .organic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+    .organic-card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      text-align: center;
+      border: 2px solid var(--wheat);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .organic-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--honey);
+    }
+    .organic-icon {
+      font-size: 2.8rem;
+      color: var(--green);
+      margin-bottom: 0.8rem;
+    }
+    .organic-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .organic-card p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
     /* Promise Card */
     .promise-card {
       background-image: url('https://i.ibb.co/GfhJzPmh/Family-field.jpg');
@@ -174,6 +210,14 @@
     @media (max-width: 900px) {
       .product { width: calc(33.333% - 1.5rem); }
     }
+    @media (max-width: 768px) {
+      .organic-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
     @media (max-width: 640px) {
       .container { padding: 1rem; }
       .logo-img { height: clamp(260px, 60vw, 360px); }
@@ -194,12 +238,38 @@
     <img src="https://i.postimg.cc/ZKf2BMc6/Transparent-Pembrey-organics-Logo.png" class="logo-img" alt="Pembrey Organics">
     <div class="coming-soon-badge">Coming Soon</div>
   </div>
+
+  <!-- HERO SECTION -->
   <section class="hero">
     <h1>Organic Living, No Exceptions</h1>
-    <p>From fresh produce and pantry staples to organic toiletries and household essentials – everything you need, all in one place.</p>
-    <a href="#signup" class="cta">Request early access to our first release</a>
+    <p>Real food, grown the way nature intended. We bring the best organic and biodynamic fresh produce, pantry staples, and natural essentials—straight to your door. No shortcuts. No compromise.</p>
+    <a href="#signup" class="cta">Join the Waitlist</a>
   </section>
 
+  <!-- WHY ORGANIC SECTION -->
+  <section class="section why-organic" style="margin-top: 1rem;">
+    <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.5rem; color: var(--green);">Why Pembrey Organics?</h2>
+    <p style="color: var(--text-soft); max-width: 600px; margin: 0 auto 2.5rem auto; font-size: 1.1rem;">Three simple reasons our food is different.</p>
+    <div class="organic-grid">
+      <div class="organic-card">
+        <div class="organic-icon"><i class="fas fa-seedling"></i></div>
+        <h3>Better for You</h3>
+        <p>Grown without synthetic pesticides, GMOs, or artificial additives. Pure, nutrient-dense food that fuels your body the way nature intended.</p>
+      </div>
+      <div class="organic-card">
+        <div class="organic-icon"><i class="fas fa-globe-europe"></i></div>
+        <h3>Better for the Planet</h3>
+        <p>We champion regenerative farming that builds healthy soil, captures carbon, and protects British wildlife for generations to come.</p>
+      </div>
+      <div class="organic-card">
+        <div class="organic-icon"><i class="fas fa-star"></i></div>
+        <h3>Better in Taste</h3>
+        <p>Taste the difference honest growing makes. No shortcuts, no compromises—just food that speaks for itself.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
   <div class="products">
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/32515181/pexels-photo-32515181.jpeg" alt="Organic fruits"><div><strong>Fruits</strong><div class="small">Grown for flavour, harvested in season</div></div></div>
     <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/533360/pexels-photo-533360.jpeg" alt="Organic vegetables"><div><strong>Vegetables</strong><div class="small">Fresh from fertile soil, selected at their best</div></div></div>
@@ -213,7 +283,6 @@
         <div class="small">Rice, pasta, grains and cupboard essentials</div>
       </div>
     </div>
-    <!-- Alcohol card – renamed from Alcoholic Beverages -->
     <div class="product">
       <img loading="lazy" src="https://images.pexels.com/photos/8231254/pexels-photo-8231254.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Two people clinking wine glasses">
       <div>
@@ -223,11 +292,12 @@
     </div>
   </div>
 
-  <!-- Promise Card -->
+  <!-- PROMISE CARD -->
   <div class="promise-card">
-    <p>Every product we source has to pass one test: it must be something we'd serve to our own family. That means uncompromising quality, real environmental care, and a taste you'll remember. Ones you'll love, that love the planet back. We're working hard behind the scenes and can't wait to deliver them to your door soon.</p>
+    <p>Our rule is simple: if we wouldn't serve it to our own family, we don't sell it. That's our promise. Quality you can trust. Care for the planet you can feel. Flavour you won't forget. We're nearly ready—and we can't wait to bring it all to your door.</p>
   </div>
 
+  <!-- SIGNUP SECTION -->
   <section id="signup" class="email-box">
     <h2>Join the List</h2>
     <p class="small">For priority access to our first seasonal release.</p>
@@ -236,6 +306,7 @@
     </div>
     <p class="small" style="margin-top:1rem;">We will write occasionally, and only when it matters.</p>
   </section>
+
   <footer>
     <p>Pembrey Organics — rooted in soil, guided by care.</p>
     <a href="https://www.facebook.com/profile.php?id=61560648151941" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-facebook-square"></i><span>Follow us on Facebook</span></a>
