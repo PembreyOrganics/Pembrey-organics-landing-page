@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Pembrey Organics · Organic Living, No Exceptions</title>
+  <title>Pembrey Organics · From Our Soil to Your Table</title>
 
   <!-- YOUR PERSONAL FAVICON (transparent logo PNG) -->
   <link rel="icon" type="image/png" href="https://i.postimg.cc/ZKf2BMc6/Transparent-Pembrey-organics-Logo.png">
@@ -40,6 +40,25 @@
     .nav { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
     .logo-img { height: clamp(260px, 35vw, 420px); width: auto; }
 
+    /* PULSE ANIMATION FOR COMING SOON BADGE */
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(232, 168, 48, 0.4);
+      }
+      50% {
+        opacity: 0.6;
+        transform: scale(0.98);
+        box-shadow: 0 0 20px 8px rgba(232, 168, 48, 0.15);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(232, 168, 48, 0.4);
+      }
+    }
+
     .coming-soon-badge {
       display: inline-block;
       margin-top: 0.8rem;
@@ -51,6 +70,12 @@
       padding: 0.4rem 1.2rem;
       border-radius: 30px;
       font-weight: 600;
+      animation: pulse 2.5s ease-in-out infinite;
+      transition: transform 0.2s ease;
+      cursor: default;
+    }
+    .coming-soon-badge:hover {
+      animation-play-state: paused;
     }
 
     .hero {
@@ -130,7 +155,7 @@
       background-size: cover;
       background-position: center;
       position: relative;
-      padding: 2.5rem 2rem;
+      padding: 6rem 4.5rem;
       border-radius: 28px;
       box-shadow: var(--shadow);
       border: 2px solid var(--wheat);
@@ -145,7 +170,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.38);
       border-radius: 28px;
       z-index: 1;
     }
@@ -153,10 +178,11 @@
       position: relative;
       z-index: 2;
       font-size: 1.15rem;
-      color: white;
+      color: #fdfaed;
       line-height: 1.7;
       font-weight: 500;
       margin-bottom: 0.75rem;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.5);
     }
     .promise-card p:last-child { margin-bottom: 0; }
 
@@ -217,6 +243,9 @@
         margin-left: auto;
         margin-right: auto;
       }
+      .promise-card {
+        padding: 3.5rem 3rem;
+      }
     }
     @media (max-width: 640px) {
       .container { padding: 1rem; }
@@ -225,8 +254,13 @@
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; }
       .cta { width: 100%; display: block; }
-      .promise-card { padding: 2rem 1.5rem; }
-      .promise-card p { font-size: 1rem; }
+      .promise-card {
+        padding: 2rem 1.5rem;
+      }
+      .promise-card p {
+        font-size: 1rem;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      }
       .email-box { padding: 1.5rem; }
       .product { width: 100%; }
     }
@@ -241,7 +275,7 @@
 
   <!-- HERO SECTION -->
   <section class="hero">
-    <h1>Organic Living, No Exceptions</h1>
+    <h1>From Our Soil to Your Table.</h1>
     <p>Real food, grown the way nature intended. We bring the best organic and biodynamic fresh produce, pantry staples, and natural essentials—straight to your door. No shortcuts. No compromise.</p>
     <a href="#signup" class="cta">Join the Waitlist</a>
   </section>
@@ -294,7 +328,7 @@
 
   <!-- PROMISE CARD -->
   <div class="promise-card">
-    <p>Our rule is simple: if we wouldn't serve it to our own family, we don't sell it. That's our promise. Quality you can trust. Care for the planet you can feel. Flavour you won't forget. We're nearly ready—and we can't wait to bring it all to your door.</p>
+    <p>Integrity is at the heart of everything we do. Quality is our only standard - rooted in regenerative agriculture, organic principles, and respect for the land. Every product is chosen for purity, flavour, and provenance. This isn't just food; it's a standard we stand behind - and our launch is approaching.</p>
   </div>
 
   <!-- SIGNUP SECTION -->
