@@ -392,9 +392,12 @@
     }
     @media (max-width: 640px) {
       .container { padding: 1rem; }
+
+      /* ---- LOGO SIZE RESTORED TO ORIGINAL ON MOBILE ---- */
       .logo-img {
-        height: clamp(180px, 45vw, 280px);
+        height: clamp(260px, 60vw, 360px); /* was clamp(180px, 45vw, 280px) */
       }
+
       .hero { padding: 2.5rem 1rem; margin-bottom: 2rem; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; }
