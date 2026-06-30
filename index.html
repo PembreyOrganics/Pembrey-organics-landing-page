@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Pembrey Organics · The Pembrey Promise</title>
 
+  <!-- SEO & SOCIAL SHARING TAGS -->
+  <meta name="description" content="The Pembrey Promise — organic and biodynamic produce, pantry staples, and natural essentials sourced with integrity and delivered to your door. Join the waitlist for our first seasonal release.">
+  <meta property="og:title" content="Pembrey Organics · The Pembrey Promise">
+  <meta property="og:description" content="Organic and biodynamic produce, pantry staples, and natural essentials — sourced with integrity, delivered to your door.">
+  <meta property="og:image" content="https://i.postimg.cc/ZKf2BMc6/Transparent-Pembrey-organics-Logo.png">
+  <meta property="og:url" content="https://pembreyorganics.com">
+  <meta property="og:type" content="website">
+
   <!-- YOUR PERSONAL FAVICON (transparent logo PNG) -->
   <link rel="icon" type="image/png" href="https://i.postimg.cc/ZKf2BMc6/Transparent-Pembrey-organics-Logo.png">
   <link rel="apple-touch-icon" href="https://i.postimg.cc/ZKf2BMc6/Transparent-Pembrey-organics-Logo.png">
@@ -24,6 +32,7 @@
       --text-soft: #555;
       --honey: #e8a830;
       --shadow: 0 8px 20px rgba(0,0,0,0.05);
+      --shadow-hover: 0 16px 40px rgba(0,0,0,0.18);
       --sandy-light: #f3ece0;
       --sandy-dark: #e8dcc8;
     }
@@ -38,7 +47,10 @@
     }
     .container { max-width: 1100px; margin: auto; padding: 1.5rem; }
     .nav { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
-    .logo-img { height: clamp(260px, 35vw, 420px); width: auto; }
+    .logo-img {
+      height: clamp(260px, 35vw, 420px);
+      width: auto;
+    }
 
     /* PULSE ANIMATION FOR COMING SOON BADGE */
     @keyframes pulse {
@@ -56,6 +68,28 @@
         opacity: 1;
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(232, 168, 48, 0.4);
+      }
+    }
+
+    /* FADE IN/OUT FOR SCROLL-TO-TOP BUTTON */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(20px); }
+    }
+
+    /* SCROLL-REVEAL ANIMATION */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -95,6 +129,8 @@
       margin: auto;
       opacity: 0.95;
     }
+
+    /* CTA BUTTON WITH GLOW */
     .cta {
       display: inline-block;
       margin-top: 2rem;
@@ -104,11 +140,59 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
-      box-shadow: 0 6px 0 #1e4a12;
+      box-shadow: 0 6px 0 #1e4a12, 0 0 40px rgba(45, 106, 30, 0.25);
       border: 2px solid #a7c957;
       transition: all 0.2s ease;
     }
-    .cta:hover { transform: translateY(3px); box-shadow: 0 3px 0 #1e4a12; }
+    .cta:hover {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #1e4a12, 0 0 50px rgba(45, 106, 30, 0.35);
+    }
+
+    /* SCROLL-TO-TOP BUTTON */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--green);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #a7c957;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      z-index: 1000;
+      cursor: pointer;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      animation: fadeIn 0.3s ease forwards;
+    }
+    .scroll-top.hidden {
+      animation: fadeOut 0.3s ease forwards;
+    }
+    .scroll-top:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(45, 106, 30, 0.35);
+    }
+    .scroll-top:active {
+      transform: scale(0.95);
+    }
+    .scroll-top i {
+      font-size: 1.2rem;
+    }
+
     .small { font-size: 0.9rem; }
     .section { margin: 3rem 0; text-align: center; }
     .grid { display: grid; gap: 1.5rem; }
@@ -120,6 +204,7 @@
       gap: 2rem;
       margin-top: 0.5rem;
     }
+
     .organic-card {
       background: var(--white);
       padding: 2rem 1.5rem;
@@ -127,12 +212,23 @@
       text-align: center;
       border: 2px solid var(--wheat);
       box-shadow: var(--shadow);
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, opacity 0.6s ease, transform 0.6s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .organic-card.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 0.6s ease forwards;
     }
     .organic-card:hover {
       transform: translateY(-6px);
       border-color: var(--honey);
     }
+    .organic-card:nth-child(1) { transition-delay: 0.05s; }
+    .organic-card:nth-child(2) { transition-delay: 0.15s; }
+    .organic-card:nth-child(3) { transition-delay: 0.25s; }
+
     .organic-icon {
       font-size: 2.8rem;
       color: var(--green);
@@ -165,6 +261,11 @@
       color: white;
       z-index: 0;
       overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .promise-card:hover {
+      transform: scale(1.01);
+      box-shadow: var(--shadow-hover);
     }
     .promise-card::before {
       content: "";
@@ -198,13 +299,28 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       border: 2px solid var(--wheat);
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform 0.2s, border-color 0.2s, opacity 0.5s ease, transform 0.5s ease;
       text-align: center;
       display: flex;
       flex-direction: column;
       width: calc(25% - 1.5rem);
       min-width: 160px;
+      opacity: 0;
+      transform: translateY(30px);
     }
+    .product.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .product:nth-child(1) { transition-delay: 0.05s; }
+    .product:nth-child(2) { transition-delay: 0.1s; }
+    .product:nth-child(3) { transition-delay: 0.15s; }
+    .product:nth-child(4) { transition-delay: 0.2s; }
+    .product:nth-child(5) { transition-delay: 0.25s; }
+    .product:nth-child(6) { transition-delay: 0.3s; }
+    .product:nth-child(7) { transition-delay: 0.35s; }
+
     .product div { padding: 1rem; flex: 1; }
     .product:hover { transform: translateY(-6px); border-color: var(--honey); }
     .product img { width: 100%; height: 160px; object-fit: cover; border-bottom: 4px solid var(--green); }
@@ -233,6 +349,17 @@
     .social-link span { color: var(--text-soft); vertical-align: middle; }
     .social-link:hover span { color: var(--green); }
 
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .organic-card,
+      .product {
+        opacity: 1;
+        transform: translateY(0);
+        animation: none;
+        transition: opacity 0.01s, transform 0.01s;
+      }
+    }
+
     @media (max-width: 900px) {
       .product { width: calc(33.333% - 1.5rem); }
     }
@@ -246,16 +373,44 @@
       .promise-card {
         padding: 3.5rem 3rem;
       }
+      .promise-card:hover {
+        transform: scale(1.005);
+      }
+      .cta {
+        box-shadow: 0 6px 0 #1e4a12;
+      }
+      .cta:hover {
+        box-shadow: 0 3px 0 #1e4a12;
+      }
+      .scroll-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+      }
     }
     @media (max-width: 640px) {
       .container { padding: 1rem; }
-      .logo-img { height: clamp(260px, 60vw, 360px); }
+      .logo-img {
+        height: clamp(180px, 45vw, 280px);
+      }
       .hero { padding: 2.5rem 1rem; margin-bottom: 2rem; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; }
-      .cta { width: 100%; display: block; }
+      .cta {
+        width: 100%;
+        display: block;
+        box-shadow: 0 6px 0 #1e4a12;
+      }
+      .cta:hover {
+        box-shadow: 0 3px 0 #1e4a12;
+      }
       .promise-card {
         padding: 2rem 1.5rem;
+      }
+      .promise-card:hover {
+        transform: scale(1);
       }
       .promise-card p {
         font-size: 1rem;
@@ -263,6 +418,23 @@
       }
       .email-box { padding: 1.5rem; }
       .product { width: 100%; }
+      .scroll-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+      .organic-card:nth-child(1) { transition-delay: 0.05s; }
+      .organic-card:nth-child(2) { transition-delay: 0.1s; }
+      .organic-card:nth-child(3) { transition-delay: 0.15s; }
+      .product:nth-child(1) { transition-delay: 0.03s; }
+      .product:nth-child(2) { transition-delay: 0.06s; }
+      .product:nth-child(3) { transition-delay: 0.09s; }
+      .product:nth-child(4) { transition-delay: 0.12s; }
+      .product:nth-child(5) { transition-delay: 0.15s; }
+      .product:nth-child(6) { transition-delay: 0.18s; }
+      .product:nth-child(7) { transition-delay: 0.21s; }
     }
   </style>
 </head>
@@ -273,10 +445,10 @@
     <div class="coming-soon-badge">Coming Soon</div>
   </div>
 
-  <!-- HERO SECTION — NO PERIOD -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <h1>The Pembrey Promise</h1>
-    <p>Real food, grown the way nature intended. We bring the best organic and biodynamic fresh produce, pantry staples, and natural essentials—straight to your door. No shortcuts. No compromise.</p>
+    <p>The finest organic and biodynamic produce, pantry staples, and natural essentials — sourced with integrity and delivered to your door. No shortcuts. No compromise.</p>
     <a href="#signup" class="cta">Join the Waitlist</a>
   </section>
 
@@ -284,19 +456,19 @@
   <section class="section why-organic" style="margin-top: 1rem;">
     <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.5rem; color: var(--green);">Why Pembrey Organics?</h2>
     <p style="color: var(--text-soft); max-width: 600px; margin: 0 auto 2.5rem auto; font-size: 1.1rem;">Three simple reasons our food is different.</p>
-    <div class="organic-grid">
+    <div class="organic-grid" id="organicGrid">
       <div class="organic-card">
-        <div class="organic-icon"><i class="fas fa-seedling"></i></div>
+        <div class="organic-icon"><i class="fas fa-seedling" aria-hidden="true"></i></div>
         <h3>Better for You</h3>
         <p>Grown without synthetic pesticides, GMOs, or artificial additives. Pure, nutrient-dense food that fuels your body the way nature intended.</p>
       </div>
       <div class="organic-card">
-        <div class="organic-icon"><i class="fas fa-globe-europe"></i></div>
+        <div class="organic-icon"><i class="fas fa-globe-europe" aria-hidden="true"></i></div>
         <h3>Better for the Planet</h3>
         <p>We champion regenerative farming that builds healthy soil, captures carbon, and protects British wildlife for generations to come.</p>
       </div>
       <div class="organic-card">
-        <div class="organic-icon"><i class="fas fa-star"></i></div>
+        <div class="organic-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
         <h3>Better in Taste</h3>
         <p>Taste the difference honest growing makes. No shortcuts, no compromises—just food that speaks for itself.</p>
       </div>
@@ -304,21 +476,21 @@
   </section>
 
   <!-- PRODUCT GRID -->
-  <div class="products">
-    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/32515181/pexels-photo-32515181.jpeg" alt="Organic fruits"><div><strong>Fruits</strong><div class="small">Grown for flavour, harvested in season</div></div></div>
-    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/533360/pexels-photo-533360.jpeg" alt="Organic vegetables"><div><strong>Vegetables</strong><div class="small">Fresh from fertile soil, selected at their best</div></div></div>
-    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg" alt="Freshly milled bread"><div><strong>Bread</strong><div class="small">Made using freshly milled flour</div></div></div>
-    <div class="product"><img loading="lazy" src="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464_1280.jpg" alt="Raw honey"><div><strong>Honey</strong><div class="small">Raw, unprocessed, naturally rich</div></div></div>
-    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/29251935/pexels-photo-29251935.jpeg" alt="Pasture raised eggs"><div><strong>Eggs</strong><div class="small">From hens raised on pasture</div></div></div>
+  <div class="products" id="productGrid">
+    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/32515181/pexels-photo-32515181.jpeg" width="400" height="260" alt="Organic fruits"><div><strong>Fruits</strong><div class="small">Grown for flavour, harvested in season</div></div></div>
+    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/533360/pexels-photo-533360.jpeg" width="400" height="260" alt="Organic vegetables"><div><strong>Vegetables</strong><div class="small">Fresh from fertile soil, selected at their best</div></div></div>
+    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg" width="400" height="260" alt="Freshly milled bread"><div><strong>Bread</strong><div class="small">Made using freshly milled flour</div></div></div>
+    <div class="product"><img loading="lazy" src="https://cdn.pixabay.com/photo/2017/01/06/17/49/honey-1958464_1280.jpg" width="400" height="260" alt="Raw honey"><div><strong>Honey</strong><div class="small">Raw, unprocessed, naturally rich</div></div></div>
+    <div class="product"><img loading="lazy" src="https://images.pexels.com/photos/29251935/pexels-photo-29251935.jpeg" width="400" height="260" alt="Pasture raised eggs"><div><strong>Eggs</strong><div class="small">From hens raised on pasture</div></div></div>
     <div class="product">
-      <img loading="lazy" src="https://images.pexels.com/photos/3737648/pexels-photo-3737648.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Glass jars with organic food storage">
+      <img loading="lazy" src="https://images.pexels.com/photos/3737648/pexels-photo-3737648.jpeg?auto=compress&cs=tinysrgb&w=600" width="400" height="260" alt="Glass jars with organic food storage">
       <div>
         <strong>Kitchen Staples</strong>
         <div class="small">Rice, pasta, grains and cupboard essentials</div>
       </div>
     </div>
     <div class="product">
-      <img loading="lazy" src="https://images.pexels.com/photos/8231254/pexels-photo-8231254.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Two people clinking wine glasses">
+      <img loading="lazy" src="https://images.pexels.com/photos/8231254/pexels-photo-8231254.jpeg?auto=compress&cs=tinysrgb&w=600" width="400" height="260" alt="Two people clinking wine glasses">
       <div>
         <strong>Alcohol</strong>
         <div class="small">Wines, Prosecco, Lager, Ales and Spirits</div>
@@ -341,11 +513,68 @@
     <p class="small" style="margin-top:1rem;">We will write occasionally, and only when it matters.</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>Pembrey Organics — rooted in soil, guided by care.</p>
-    <a href="https://www.facebook.com/profile.php?id=61560648151941" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-facebook-square"></i><span>Follow us on Facebook</span></a>
+    <a href="https://www.facebook.com/profile.php?id=61560648151941" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow Pembrey Organics on Facebook">
+      <i class="fab fa-facebook-square" aria-hidden="true"></i>
+      <span>Follow us on Facebook</span>
+    </a>
   </footer>
 </div>
+
+<!-- SCROLL-TO-TOP BUTTON -->
+<a href="#" class="scroll-top" id="scrollTopBtn" aria-label="Scroll back to top">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</a>
+
+<script>
+  // SCROLL-TO-TOP BUTTON LOGIC
+  const scrollBtn = document.getElementById('scrollTopBtn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.remove('hidden');
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+      scrollBtn.classList.add('hidden');
+    }
+  });
+
+  scrollBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // SCROLL-REVEAL ANIMATIONS
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    // Observe organic cards
+    document.querySelectorAll('.organic-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Observe product cards
+    document.querySelectorAll('.product').forEach(product => {
+      observer.observe(product);
+    });
+  });
+</script>
+
 <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
