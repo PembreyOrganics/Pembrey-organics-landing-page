@@ -3,90 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Pembrey Organics</title>
-
-  <meta
-    name="description"
-    content="Organic and biodynamic food and drink, delivered to your door."
-  >
-
-  <link
-    rel="icon"
-    href="https://pembrey-organics.light-maple-4207.chatgpt.site/pembrey-beet-favicon.png"
-  >
-
+  <title>Pembrey Organics · Organic &amp; Biodynamic Delivery</title>
+  <meta name="description" content="Organic and biodynamic food and drink, delivered to your door.">
+  <link rel="icon" href="pembrey-beet-favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:wght@400;500&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:wght@400;500&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --green: #123b2a;
-      --dark-green: #0b2d20;
-      --cream: #f3f0e7;
+      --forest: #123b2a;
+      --forest-deep: #0b2d20;
+      --ink: #152019;
+      --ivory: #f3f0e7;
       --paper: #fcfaf5;
-      --text: #152019;
-      --orange: #b96747;
-      --line: #d7d0c2;
+      --clay: #b96747;
+      --rule: #d7d0c2;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      background: var(--cream);
-      color: var(--text);
+      background: var(--ivory);
+      color: var(--ink);
       font-family: Inter, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--clay); outline-offset: 4px; }
 
-    h1,
-    h2,
-    h3 {
-      font-family: Newsreader, Georgia, serif;
-      font-weight: 400;
-    }
-
-    .coming-soon {
+    .top-coming-soon {
       min-height: 76px;
       padding: 14px 24px;
       display: grid;
       place-items: center;
-      position: relative;
       overflow: hidden;
-      background: var(--dark-green);
+      position: relative;
+      background: var(--forest-deep);
     }
 
-    .coming-soon::before {
+    .top-coming-soon::before {
       width: min(70vw, 620px);
       height: 110px;
       position: absolute;
       border-radius: 50%;
-      background:
-        radial-gradient(
-          ellipse,
-          rgba(224, 145, 79, 0.25),
-          transparent 70%
-        );
+      background: radial-gradient(ellipse, rgba(224,145,79,.24) 0%, transparent 70%);
       content: "";
       animation: glow 3s ease-in-out infinite;
     }
 
-    .coming-soon p {
+    .top-coming-soon p {
       position: relative;
       z-index: 1;
       margin: 0;
@@ -94,51 +62,41 @@
       font-family: Newsreader, Georgia, serif;
       font-size: clamp(28px, 3.2vw, 42px);
       font-weight: 500;
-      letter-spacing: 0.04em;
-      text-shadow:
-        0 0 9px rgba(255, 205, 139, 0.9),
-        0 0 24px rgba(224, 130, 70, 0.72),
-        0 0 46px rgba(224, 130, 70, 0.42);
+      letter-spacing: .04em;
+      line-height: 1;
+      text-align: center;
+      text-shadow: 0 0 9px rgba(255,205,139,.9), 0 0 24px rgba(224,130,70,.72), 0 0 46px rgba(224,130,70,.42);
     }
 
     @keyframes glow {
-      0%,
-      100% {
-        opacity: 0.7;
-        transform: scale(0.94);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.06);
-      }
+      0%, 100% { opacity: .7; transform: scale(.94); }
+      50% { opacity: 1; transform: scale(1.06); }
     }
 
-    header {
+    .site-header {
       height: 126px;
       padding: 0 clamp(24px, 4vw, 64px);
       display: flex;
       align-items: center;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--rule);
+      background: var(--ivory);
     }
 
     .logo {
       width: 182px;
       height: 120px;
       display: block;
+      transition: transform 180ms ease;
     }
 
-    .logo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-    }
+    .logo:hover { transform: rotate(-1.5deg) scale(1.02); }
+    .logo img { width: 100%; height: 100%; display: block; object-fit: contain; }
 
     .hero {
       min-height: 720px;
       display: grid;
       grid-template-columns: minmax(440px, 48%) 1fr;
+      background: var(--ivory);
     }
 
     .hero-copy {
@@ -148,76 +106,84 @@
       justify-content: center;
     }
 
-    .hero h1 {
+    h1, h2, h3 { font-family: Newsreader, Georgia, serif; font-weight: 400; }
+
+    h1 {
       max-width: 690px;
       margin: 0;
-      color: var(--dark-green);
+      color: var(--forest-deep);
       font-size: clamp(58px, 6.5vw, 104px);
-      letter-spacing: -0.055em;
-      line-height: 0.94;
+      letter-spacing: -.055em;
+      line-height: .94;
     }
 
-    .hero-button {
+    .hero-actions { margin-top: 46px; }
+
+    .button {
       min-width: 210px;
-      margin-top: 46px;
       padding: 16px 20px;
       display: inline-flex;
+      align-items: center;
       justify-content: space-between;
       gap: 24px;
-      border: 1px solid var(--dark-green);
-      background: var(--dark-green);
+      border: 1px solid var(--forest-deep);
+      background: var(--forest-deep);
       color: var(--paper);
       font-size: 13px;
       font-weight: 600;
       text-decoration: none;
+      transition: background 180ms ease, color 180ms ease;
     }
 
-    .hero-image {
+    .button:hover { background: transparent; color: var(--forest-deep); }
+
+    .hero-media {
       min-height: 720px;
-      position: relative;
       overflow: hidden;
+      position: relative;
       border-top-left-radius: 48% 38%;
     }
 
-    .hero-image img {
+    .hero-media img {
       width: 100%;
       height: 100%;
       position: absolute;
       inset: 0;
       display: block;
       object-fit: cover;
+      filter: saturate(.86) contrast(1.05);
     }
 
-    .how-it-works {
-      padding: clamp(96px, 11vw, 160px)
-        clamp(24px, 7vw, 110px);
+    .promise {
+      padding: clamp(96px, 11vw, 160px) clamp(24px, 7vw, 110px);
+      background: var(--ivory);
     }
 
-    .how-it-works > h2 {
+    .section-title {
       margin: 0 0 clamp(42px, 6vw, 78px);
-      color: var(--dark-green);
+      color: var(--forest-deep);
       font-size: clamp(52px, 5.4vw, 82px);
-      letter-spacing: -0.05em;
-      line-height: 0.97;
+      letter-spacing: -.05em;
+      line-height: .97;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(26px, 4vw, 64px);
     }
 
     .steps article {
       padding-top: 22px;
-      border-top: 1px solid var(--green);
+      border-top: 1px solid var(--forest);
     }
 
     .steps h3 {
       min-height: 2.2em;
       margin: 0 0 18px;
-      color: var(--dark-green);
+      color: var(--forest-deep);
       font-size: clamp(30px, 3vw, 46px);
-      letter-spacing: -0.035em;
+      letter-spacing: -.035em;
       line-height: 1.05;
     }
 
@@ -229,9 +195,8 @@
       line-height: 1.6;
     }
 
-    .benefits-section {
-      padding: clamp(76px, 8vw, 122px)
-        clamp(24px, 6vw, 96px);
+    .benefits-wrap {
+      padding: clamp(76px, 8vw, 122px) clamp(24px, 6vw, 96px);
       background: var(--paper);
     }
 
@@ -240,22 +205,20 @@
       margin: 0 auto;
       padding: clamp(42px, 6vw, 76px);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(34px, 5vw, 72px);
-      background: var(--dark-green);
+      background: var(--forest-deep);
       color: var(--paper);
     }
 
-    .benefits article {
-      padding-top: 26px;
-      border-top: 1px solid #789080;
-    }
+    .benefits article { padding-top: 26px; border-top: 1px solid #789080; }
 
     .benefits h2 {
       margin: 0;
+      color: var(--paper);
       font-size: clamp(38px, 4vw, 62px);
-      letter-spacing: -0.05em;
-      line-height: 0.97;
+      letter-spacing: -.05em;
+      line-height: .97;
     }
 
     .benefits p {
@@ -266,20 +229,19 @@
     }
 
     .signup {
-      padding: clamp(90px, 11vw, 160px)
-        clamp(24px, 7vw, 110px);
+      padding: clamp(90px, 11vw, 160px) clamp(24px, 7vw, 110px);
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: .8fr 1.2fr;
       gap: clamp(56px, 10vw, 150px);
       background: #e7e4d9;
     }
 
     .signup h2 {
       margin: 0;
-      color: var(--dark-green);
+      color: var(--forest-deep);
       font-size: clamp(52px, 5.4vw, 82px);
-      letter-spacing: -0.05em;
-      line-height: 0.97;
+      letter-spacing: -.05em;
+      line-height: .97;
     }
 
     .signup-copy p {
@@ -297,16 +259,13 @@
       background: var(--paper);
     }
 
-    .signup-form iframe {
-      display: block;
-      border: 0;
-    }
+    .signup-form iframe { display: block; border: 0; }
 
     .form-link {
       width: max-content;
       margin: 4px auto 0;
       display: block;
-      color: var(--dark-green);
+      color: var(--forest-deep);
       font-size: 12px;
       font-weight: 600;
       text-underline-offset: 5px;
@@ -324,248 +283,90 @@
       font-size: 12px;
     }
 
-    footer a {
-      font-weight: 500;
-      text-underline-offset: 5px;
-    }
+    footer a { font-weight: 500; text-underline-offset: 5px; }
 
     @media (max-width: 820px) {
-      header {
-        height: 92px;
-        padding: 0 18px;
-      }
-
-      .logo {
-        width: 122px;
-        height: 86px;
-      }
-
-      .hero {
-        min-height: 0;
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        padding: 54px 22px 48px;
-      }
-
-      .hero h1 {
-        font-size: clamp(48px, 14vw, 62px);
-      }
-
-      .hero-button {
-        width: 100%;
-      }
-
-      .hero-image {
-        min-height: 440px;
-        border-top-left-radius: 42% 38%;
-      }
-
-      .how-it-works {
-        padding: 92px 22px;
-      }
-
-      .how-it-works > h2,
-      .signup h2 {
-        font-size: clamp(50px, 14vw, 68px);
-      }
-
-      .steps,
-      .benefits,
-      .signup {
-        grid-template-columns: 1fr;
-      }
-
-      .steps {
-        gap: 46px;
-      }
-
-      .steps h3 {
-        min-height: 0;
-      }
-
-      .benefits-section {
-        padding: 90px 22px;
-      }
-
-      .benefits {
-        padding: 38px 26px;
-        gap: 52px;
-      }
-
-      .signup {
-        padding: 92px 22px;
-        gap: 48px;
-      }
-
-      .signup-form {
-        min-height: 360px;
-        padding: 20px 14px;
-      }
-
-      footer {
-        padding: 52px 22px;
-        grid-template-columns: 1fr;
-        align-items: start;
-      }
+      .site-header { height: 92px; padding: 0 18px; }
+      .logo { width: 122px; height: 86px; }
+      .hero { min-height: 0; grid-template-columns: 1fr; }
+      .hero-copy { padding: 54px 22px 48px; }
+      h1 { font-size: clamp(48px, 14vw, 62px); }
+      .button { width: 100%; }
+      .hero-media { min-height: 440px; border-top-left-radius: 42% 38%; }
+      .promise { padding: 92px 22px; }
+      .section-title, .signup h2 { font-size: clamp(50px, 14vw, 68px); }
+      .steps, .benefits, .signup { grid-template-columns: 1fr; }
+      .steps { gap: 46px; }
+      .steps h3 { min-height: 0; }
+      .benefits-wrap { padding: 90px 22px; }
+      .benefits { padding: 38px 26px; gap: 52px; }
+      .signup { padding: 92px 22px; gap: 48px; }
+      .signup-form { min-height: 360px; padding: 20px 14px; }
+      footer { padding: 52px 22px; grid-template-columns: 1fr; align-items: start; }
     }
 
     @media (max-width: 720px) {
-      .coming-soon {
-        min-height: 64px;
-      }
-
-      .coming-soon p {
-        font-size: 30px;
-      }
+      .top-coming-soon { min-height: 64px; padding: 12px 18px; }
+      .top-coming-soon p { font-size: 30px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-      }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; }
     }
   </style>
 </head>
-
 <body>
   <main>
-    <section class="coming-soon">
-      <p>Coming Soon</p>
-    </section>
+    <section class="top-coming-soon" aria-label="Coming soon"><p>Coming Soon</p></section>
 
-    <header>
+    <header class="site-header">
       <a class="logo" href="#top" aria-label="Pembrey Organics home">
-        <img
-          src="https://pembrey-organics.light-maple-4207.chatgpt.site/pembrey-beet-logo.png"
-          alt="Pembrey Organics"
-        >
+        <img src="pembrey-beet-logo.png" alt="Pembrey Organics">
       </a>
     </header>
 
-    <section class="hero" id="top">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="hero-copy">
-        <h1>
-          Organic and biodynamic food and drink, delivered to your door.
-        </h1>
-
-        <a class="hero-button" href="#signup">
-          Join the waitlist
-          <span>→</span>
-        </a>
+        <h1 id="hero-heading">Organic and biodynamic food and drink, delivered to your door.</h1>
+        <div class="hero-actions"><a class="button" href="#signup">Join the waitlist <span aria-hidden="true">→</span></a></div>
       </div>
-
-      <div class="hero-image">
-        <img
-          src="https://pembrey-organics.light-maple-4207.chatgpt.site/images/pembrey-harvest.png"
-          alt="Organic vegetables, bread, eggs and pantry staples"
-        >
+      <div class="hero-media">
+        <img src="images/pembrey-harvest.png" alt="Organic vegetables, bread, eggs and pantry staples">
       </div>
     </section>
 
-    <section class="how-it-works">
-      <h2>How it works</h2>
-
+    <section class="promise" aria-label="Ordering steps">
+      <h2 class="section-title">How it works</h2>
       <div class="steps">
-        <article>
-          <h3>Choose what you fancy</h3>
-          <p>
-            Browse the food and drink and add what looks good.
-          </p>
-        </article>
-
-        <article>
-          <h3>Fill your basket</h3>
-          <p>
-            Add the essentials, the treats—or a bit of both.
-          </p>
-        </article>
-
-        <article>
-          <h3>Then we deliver</h3>
-          <p>
-            Each area has a dedicated delivery day, and we’ll bring
-            your order straight to your door.
-          </p>
-        </article>
+        <article><h3>Choose what you fancy</h3><p>Browse the food and drink and add what looks good.</p></article>
+        <article><h3>Fill your basket</h3><p>Add the essentials, the treats—or a bit of both.</p></article>
+        <article><h3>Then we deliver</h3><p>Each area has a dedicated delivery day, and we’ll bring your order straight to your door.</p></article>
       </div>
     </section>
 
-    <section class="benefits-section">
+    <section class="benefits-wrap" aria-label="Why choose Pembrey Organics">
       <div class="benefits">
-        <article>
-          <h2>Better for You</h2>
-          <p>
-            Grown without synthetic pesticides, GMOs, or artificial
-            additives. Pure, nutrient-dense food that fuels your body
-            the way nature intended.
-          </p>
-        </article>
-
-        <article>
-          <h2>Better for the Planet</h2>
-          <p>
-            We champion regenerative farming that builds healthy soil,
-            captures carbon, and protects British wildlife for
-            generations to come.
-          </p>
-        </article>
-
-        <article>
-          <h2>Better in Taste</h2>
-          <p>
-            Taste the difference honest growing makes. No shortcuts,
-            no compromises—just food that speaks for itself.
-          </p>
-        </article>
+        <article><h2>Better for You</h2><p>Grown without synthetic pesticides, GMOs, or artificial additives. Pure, nutrient-dense food that fuels your body the way nature intended.</p></article>
+        <article><h2>Better for the Planet</h2><p>We champion regenerative farming that builds healthy soil, captures carbon, and protects British wildlife for generations to come.</p></article>
+        <article><h2>Better in Taste</h2><p>Taste the difference honest growing makes. No shortcuts, no compromises—just food that speaks for itself.</p></article>
       </div>
     </section>
 
-    <section class="signup" id="signup">
+    <section class="signup" id="signup" aria-labelledby="signup-heading">
       <div class="signup-copy">
-        <h2>Good food is on its way.</h2>
-        <p>
-          Join the waitlist and we’ll let you know when we open.
-        </p>
+        <h2 id="signup-heading">Good food is on its way.</h2>
+        <p>Join the waitlist and we’ll let you know when we open.</p>
       </div>
-
       <div class="signup-form">
-        <iframe
-          src="https://tally.so/embed/7RJ0D6?hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="350"
-          title="Join the Pembrey Organics waitlist"
-        ></iframe>
-
-        <a
-          class="form-link"
-          href="https://tally.so/embed/7RJ0D6"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open the waitlist form →
-        </a>
+        <iframe src="https://tally.so/embed/7RJ0D6?hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" loading="lazy" width="100%" height="350" title="Join the Pembrey Organics waitlist"></iframe>
+        <a class="form-link" href="https://tally.so/embed/7RJ0D6" target="_blank" rel="noreferrer">Open the waitlist form →</a>
       </div>
     </section>
 
     <footer>
       <p>© Pembrey Organics</p>
-
-      <a
-        href="https://www.facebook.com/profile.php?id=61560648151941"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Follow on Facebook →
-      </a>
+      <a href="https://www.facebook.com/profile.php?id=61560648151941" target="_blank" rel="noreferrer">Follow on Facebook →</a>
     </footer>
   </main>
 </body>
